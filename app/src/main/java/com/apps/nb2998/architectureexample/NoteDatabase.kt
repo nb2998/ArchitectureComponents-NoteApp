@@ -7,7 +7,6 @@ import android.content.Context
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.os.AsyncTask
 
-
 @Database(entities = [Note::class], version = 1)
 abstract class NoteDatabase : RoomDatabase() {
 
