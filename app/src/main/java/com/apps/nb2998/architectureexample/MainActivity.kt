@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         noteViewModel.getAllNotes().observe(this, Observer<List<Note>>{
             // onChanged - update recycler view here
             Toast.makeText(applicationContext, "on Changed", Toast.LENGTH_SHORT).show()
+
         })
     }
 }
