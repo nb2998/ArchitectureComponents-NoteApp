@@ -29,5 +29,9 @@ class MainActivity : AppCompatActivity() {
 
             adapter.setNoteList(it!!)
         })
+
+        addNoteFab.setOnClickListener({
+
+        })
     }
 }
