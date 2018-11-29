@@ -13,24 +13,24 @@ abstract class NoteDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
 
     companion object {
-        private var instance: NoteDatabase? = null
+        private var dbInstance: NoteDatabase? = null
         private var roomCallback = object: RoomDatabase.Callback(){
             override fun onCreate(db: SupportSQLiteDatabase) {
-                PopulateDB(instance).execute()
+                PopulateDB(dbInstance).execute()
                 super.onCreate(db)
             }
         }
 
         @Synchronized
         fun getInstance(context: Context): NoteDatabase{
-            if(instance==null){
-                instance = Room.databaseBuilder(context.applicationContext,
+            if(dbInstance==null){
+                dbInstance = Room.databaseBuilder(context.applicationContext,
                         NoteDatabase::class.java, context.getString(R.string.note_database_name))
                         .fallbackToDestructiveMigration()
                         .addCallback(roomCallback)
                         .build()
             }
-            return instance as NoteDatabase
+            return dbInstance as NoteDatabase
         }
 
         private class PopulateDB(var noteDatabase: NoteDatabase?): AsyncTask<Void, Void, Void>(){

@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class NoteAdapter(val notes: List<Note>, val context: Context): RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
+class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteHolder>() {
+    var notes = mutableListOf<Note>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
-        return NoteHolder(LayoutInflater.from(context).inflate(R.layout.single_note, parent, false))
+        return NoteHolder(LayoutInflater.from(parent.context).inflate(R.layout.single_note, parent, false))
     }
 
     override fun getItemCount() = notes.size
@@ -24,5 +26,10 @@ class NoteAdapter(val notes: List<Note>, val context: Context): RecyclerView.Ada
         val tvPriority: TextView = itemView.findViewById(R.id.text_view_priority)
         val tvDescription: TextView = itemView.findViewById(R.id.text_view_description)
         val tvTitle: TextView = itemView.findViewById(R.id.text_view_title)
+    }
+
+    fun setNoteList(notes: MutableList<Note>){
+        this.notes = notes
+        notifyDataSetChanged()
     }
 }

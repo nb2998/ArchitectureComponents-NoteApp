@@ -7,8 +7,7 @@ import android.os.AsyncTask
 class NoteRepository(application: Application) {
 
     init {
-        val noteDatabase = NoteDatabase.getInstance(application)
-        noteDao = noteDatabase.noteDao()
+        noteDao = (NoteDatabase.getInstance(application)).noteDao()
         notesList = noteDao.getAllNotes()
     }
 
@@ -28,13 +27,13 @@ class NoteRepository(application: Application) {
         DeleteAllNotesAsyncTask().execute()
     }
 
-    fun getAllNotes(): LiveData<List<Note>> {
+    fun getAllNotes(): LiveData<MutableList<Note>> {
         return notesList
     }
 
     companion object {
         lateinit var noteDao: NoteDao
-        lateinit var notesList: LiveData<List<Note>>
+        lateinit var notesList: LiveData<MutableList<Note>>
 
         class InsertAsyncTask : AsyncTask<Note, Void, Void>() {
             private var noteDaoAsync: NoteDao = noteDao

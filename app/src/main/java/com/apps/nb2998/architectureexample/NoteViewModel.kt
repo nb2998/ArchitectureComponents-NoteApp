@@ -6,7 +6,7 @@ import android.arch.lifecycle.LiveData
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
     var repository: NoteRepository
-    var listOfNotes: LiveData<List<Note>>
+    var listOfNotes: LiveData<MutableList<Note>>
 
     init {
         repository = NoteRepository(application)
@@ -29,7 +29,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         repository.deleteAllNotes()
     }
 
-    fun getAllNotes(): LiveData<List<Note>> {
+    fun getAllNotes(): LiveData<MutableList<Note>> {
         return listOfNotes
     }
 }
