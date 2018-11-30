@@ -27,4 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"/>
 
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="Save"
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>

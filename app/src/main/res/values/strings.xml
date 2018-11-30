@@ -2,4 +2,7 @@
     <string name="app_name">ArchitectureExample</string>
     <string name="note_database_name">note_database</string>
     <string name="note_table_name">note_table</string>
+    <string name="intentTitle">noteTitle</string>
+    <string name="intentDesc">noteDescription</string>
+    <string name="intentPriority">notePriority</string>
 </resources>
