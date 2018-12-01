@@ -15,6 +15,8 @@ class AddNoteActivity : AppCompatActivity() {
 
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_closenote)
         title = "Add note"
+        numPickerPriority.minValue = 0
+        numPickerPriority.maxValue = 10
         btnSave.setOnClickListener { saveNote() }
     }
 
@@ -24,7 +26,7 @@ class AddNoteActivity : AppCompatActivity() {
         val priority = numPickerPriority.value
 
         if (title.trim().isEmpty() || description.trim().isEmpty()) {
-            Toast.makeText(this@AddNoteActivity, "Empty fields", Toast.LENGTH_SHORT)
+            Toast.makeText(this@AddNoteActivity, "Empty fields", Toast.LENGTH_SHORT).show()
             return
         }
 

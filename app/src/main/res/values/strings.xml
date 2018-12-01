@@ -5,4 +5,5 @@
     <string name="intentTitle">noteTitle</string>
     <string name="intentDesc">noteDescription</string>
     <string name="intentPriority">notePriority</string>
+    <string name="delete_all">Delete All</string>
 </resources>
