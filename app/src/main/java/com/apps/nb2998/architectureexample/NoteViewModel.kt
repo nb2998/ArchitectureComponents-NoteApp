@@ -5,11 +5,10 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
-    var repository: NoteRepository
+    var repository: NoteRepository = NoteRepository(application)
     var listOfNotes: LiveData<MutableList<Note>>
 
     init {
-        repository = NoteRepository(application)
         listOfNotes = repository.getAllNotes()
     }
 
